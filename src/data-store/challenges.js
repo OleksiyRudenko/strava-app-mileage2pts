@@ -1,4 +1,5 @@
-import {challengesConfig} from "./config-challenges";
+import {challengesConfig} from "./config-challenges.js";
+import {date2UTCString} from "../common/date-helpers.js";
 
 /**
  * Returns config of challenges that applicable to current date, only computations applicable
@@ -22,8 +23,8 @@ export const prepareChallengesConfig = challengesConfig =>
     .forEach(challenge => {
       challenge.phases.forEach(phase => {
         if (typeof (phase.timeframe) !== "undefined") {
-          phase.timeframe.from = new Date(phase.timeframe.from);
-          phase.timeframe.till = new Date(phase.timeframe.till);
+          phase.timeframe.from = date2UTCString(phase.timeframe.from);
+          phase.timeframe.till = date2UTCString(phase.timeframe.till);
         }
       })
     })
