@@ -1,4 +1,4 @@
-import {challengesConfig} from "./config-challenges.js";
+import {challengesConfig} from "./challenges.config.js";
 import {date2UTCString} from "../common/date-helpers.js";
 
 /**
