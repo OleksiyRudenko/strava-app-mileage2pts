@@ -1,5 +1,6 @@
 export const challengesConfig = [
   {
+    isRaw: true, // see challenges.etl.js for status meaning
     name: "grarowerowa 2024 Gdansk",
     description: "",
     docs: {
@@ -19,6 +20,7 @@ export const challengesConfig = [
     phases: [
       {
         id: "default",
+        timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-11-30T23:59:59+2:00",},
         metrics: [
           {
             id: "pts",
@@ -87,20 +89,18 @@ export const challengesConfig = [
         name: "September",
         description: "In September pts are equivalent to kilometers rounded down to integer",
         timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-09-30T23:59:59+2:00",},
-        import: ["default"],
       },
       {
         id: "x2",
         name: "October x2",
         description: "In October pts are x2!",
         timeframe: {from: "2024-10-01T00:00:00+2:00", till: "2024-10-31T23:59:59+2:00",},
-        import: ["default"],
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
             outputs: {
               id: "pts",
-              computationRulesAmendmentMode: "append", // as opposed to rewrite
+              computationRulesAmendmentMode: "append", // as opposed to overwrite
               computationRules: [
                 {
                   op: "mult",
@@ -116,7 +116,6 @@ export const challengesConfig = [
         name: "November x3",
         description: "In November pts are x3!",
         timeframe: {from: "2024-11-01T00:00:00+2:00", till: "2024-11-30T23:59:59+2:00",},
-        import: ["default"],
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
@@ -136,10 +135,10 @@ export const challengesConfig = [
     ],
   },
   {
+    isRaw: true, // see challenges.etl.js for status meaning
     id: "ringSportsClub2024-Autumn",
     name: "Ring Sport Club 2024 Autumn",
     description: "",
-    timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-10-31T23:59:59+2:00",},
     docs: {
       regulations: "",
       computations: "",
@@ -168,6 +167,7 @@ export const challengesConfig = [
       {
         id: "single",
         name: "Autumn 2024",
+        timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-10-31T23:59:59+2:00",},
         metrics: [
           {
             id: "pts",
