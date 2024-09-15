@@ -1,4 +1,5 @@
 import {date2UTCString} from "../common/date-helpers.js"
+import {squashArrays, squashObjects} from "../common/object-helpers.js";
 
 /**
  * Returns config of challenges that applicable to current date, only computations applicable
@@ -31,25 +32,22 @@ export const getChallengesByDate = (challengesConfig, date) => {
                 append: append computationRules[]
                 default: overwrite
          */
-
-        ['id', 'name', 'description', 'timeframe']
-          .forEach(prop => {
-            if (sourcePhase[prop] !== undefined) squashedPhase[prop] = sourcePhase[prop]
-          })
-
-        sourcePhase?.metrics?.forEach(sourceMetric => {
-          const targetMetric = squashedPhase?.metrics?.find(targetMetric => targetMetric.id === sourceMetric.id)
-          if (targetMetric === undefined) {
-            // add metric
-            if (squashedPhase.metrics === undefined) squashedPhase.metrics = []
-            squashedPhase.metrics.push(sourceMetric)
-          } else {
-            // squash sourceMetric into targetMetric
-
-          }
+        squashedPhase = squashObjects(squashedPhase, sourcePhase, {
+          metrics: (targetMetrics, sourceMetrics) => {
+            return squashArrays(targetMetrics, sourceMetrics, 'id', {
+              inputs: (targetInputs, sourceInputs) => squashArrays(targetInputs, sourceInputs, 'id'),
+              outputs: (targetOutputs, sourceOutputs) => squashArrays(targetOutputs, sourceOutputs, 'id', {
+                computationRules: (targetRules, sourceRules, _, sourceObject) => {
+                  if (sourceObject.computationRulesAmendmentMode === 'append') {
+                    return [...targetRules, ...sourceRules]
+                  } else {
+                    return sourceRules
+                  }
+                }
+              }),
+            })
+          },
         })
-
-
         return squashedPhase
       }, squashedPhase)
 
