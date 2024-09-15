@@ -40,7 +40,7 @@ export const squashObjects = (target, source, propRules = 'overwrite') => {
           }
           break
         default: // function
-          target[prop] = rule(target[prop], source[prop])
+          target[prop] = rule(target[prop], source[prop], target, source)
       }
     } else {
       target[prop] = source[prop]
@@ -56,7 +56,14 @@ export const squashObjects = (target, source, propRules = 'overwrite') => {
  * @param {Array} target array
  * @param {Array} source array
  * @param {String} idProp - property that identifies mergeable elements by its value equality
- * @param {Object|String} propRules - properties handling rules. Default behaviour is overwriting.
+ * @param {Object|String} propRules - properties handling rules.
+ *        Default rule is overwrite.
+ *        Rules: 'append', 'sum', function
+ *        if rule is a function than it receives:
+ *        - targeted object property value,
+ *        - object to squash in property value,
+ *        - targeted object,
+ *        - object to squash in
  * @returns {Array} squashed arrays
  */
 export const squashArrays = (target, source, idProp = 'id', propRules = 'overwrite') => {
@@ -95,7 +102,7 @@ export const squashArrays = (target, source, idProp = 'id', propRules = 'overwri
               }
               break
             default: // function
-              targetElement[prop] = rule(targetElement[prop], sourceElement[prop])
+              targetElement[prop] = rule(targetElement[prop], sourceElement[prop], targetElement, sourceElement)
           }
         } else {
           targetElement[prop] = sourceElement[prop]
