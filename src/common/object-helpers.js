@@ -21,5 +21,14 @@ export const squashObjects = (target, source, propsRules = 'overwrite') => {
  */
 export const squashArrays = (target, source, idProp = 'id', propsRules= 'overwrite') => {
   target = JSON.parse(JSON.stringify(target))
+  return source.reduce((targetArray, sourceElement) => {
+    const targetElement = targetArray.find(targetElement => targetElement[idProp] === sourceElement[idProp])
+    if (targetElement === undefined) {
+      targetArray.append(sourceElement)
+    } else {
+      // squash in source properties using propRules
 
+    }
+    return targetArray
+  }, target)
 }
