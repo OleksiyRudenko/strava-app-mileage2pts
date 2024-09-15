@@ -19,7 +19,7 @@ export const getChallengesByDate = (challengesConfig, date) => {
       const {isRaw, id, name, description, docs, sports, activityDayMapping, phases} = challenge
       const squashedChallenge = {isRaw, id, name, description, docs, sports, activityDayMapping}
       let squashedPhase = phases.shift()
-      squashedPhase = phases.reduce(sourcePhase => {
+      squashedPhase = phases.reduce((squashedPhase, sourcePhase) => {
         /*
           Squashing rules
           id, name, description, timeframe - overwrite those that are defined
