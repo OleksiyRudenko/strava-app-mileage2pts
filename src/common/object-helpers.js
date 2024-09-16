@@ -68,6 +68,9 @@ export const squashObjects = (target, source, propRules = 'overwrite') => {
  */
 export const squashArrays = (target, source, idProp = 'id', propRules = 'overwrite') => {
   target = JSON.parse(JSON.stringify(target))
+  if (target === undefined) return JSON.parse(JSON.stringify(source))
+  if (source === undefined) return target
+
   return source.reduce((targetArray, sourceElement) => {
     let targetElement = targetArray.find(targetElement => targetElement[idProp] === sourceElement[idProp])
     if (targetElement === undefined) {
