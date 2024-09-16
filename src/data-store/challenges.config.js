@@ -41,11 +41,7 @@ export const challengesConfig = [
                 computationRules: [
                   {
                     op: "floor",
-                    params: [
-                      {
-                        source: "inputs", id: "mileage",
-                      }
-                    ]
+                    params: [{source: "inputs", id: "mileage",}],
                   },
                 ],
               }
@@ -98,16 +94,15 @@ export const challengesConfig = [
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
-            outputs: {
-              id: "pts",
-              computationRulesAmendmentMode: "append", // as opposed to overwrite
-              computationRules: [
-                {
-                  op: "mult",
-                  params: [2],
-                },
-              ],
-            },
+            outputs: [
+              {
+                id: "pts",
+                computationRulesAmendmentMode: "append", // as opposed to overwrite
+                computationRules: [
+                  {op: "mult", params: [2],},
+                ],
+              }
+            ],
           },
         ],
       },
@@ -119,16 +114,15 @@ export const challengesConfig = [
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
-            outputs: {
-              id: "pts",
-              computationRulesAmendmentMode: "append", // as opposed to rewrite
-              computationRules: [
-                {
-                  op: "mult",
-                  params: [3],
-                },
-              ],
-            },
+            outputs: [
+              {
+                id: "pts",
+                computationRulesAmendmentMode: "append", // as opposed to rewrite
+                computationRules: [
+                  {op: "mult", params: [3],},
+                ],
+              }
+            ],
           },
         ],
       },
@@ -193,31 +187,31 @@ export const challengesConfig = [
             outputs: [
               {
                 id: "ridePts",
-                computationRules: [{op: "mult", params: [{source: "inputs", id: "rideMileage",}, 0.25,],}, {
-                  op: "round",
-                  params: 2
-                },],
+                computationRules: [
+                  {op: "mult", params: [{source: "inputs", id: "rideMileage",}, 0.25,],},
+                  {op: "round", params: 2},
+                ],
               },
               {
                 id: "runPts",
-                computationRules: [{op: "mult", params: [{source: "inputs", id: "runMileage",}, 0.25,],}, {
-                  op: "round",
-                  params: 2
-                },],
+                computationRules: [
+                  {op: "mult", params: [{source: "inputs", id: "runMileage",}, 0.25,],},
+                  {op: "round", params: 2},
+                ],
               },
               {
                 id: "walkPts",
-                computationRules: [{op: "mult", params: [{source: "inputs", id: "walkMileage",}, 0.25,],}, {
-                  op: "round",
-                  params: 2
-                },],
+                computationRules: [
+                  {op: "mult", params: [{source: "inputs", id: "walkMileage",}, 0.25,],},
+                  {op: "round", params: 2},
+                ],
               },
               {
                 id: "swimPts",
-                computationRules: [{op: "mult", params: [{source: "inputs", id: "swimMileage",}, 0.25,],}, {
-                  op: "round",
-                  params: 2
-                },],
+                computationRules: [
+                  {op: "mult", params: [{source: "inputs", id: "swimMileage",}, 0.25,],},
+                  {op: "round", params: 2},
+                ],
               },
               {
                 id: "pts",

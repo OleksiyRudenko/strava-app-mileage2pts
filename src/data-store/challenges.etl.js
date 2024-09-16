@@ -16,6 +16,8 @@ export const getChallengesByDate = (challengesConfig, date) => {
       challenge => challenge.phases.some(phase => dateUTCString >= phase.timeframe.from && dateUTCString <= phase.timeframe.till)
     )
     .map(challenge => {
+      // filter phases
+      challenge.phases = challenge.phases.filter(phase => dateUTCString >= phase.timeframe.from && dateUTCString <= phase.timeframe.till)
       // squash phases, by cumulatively overwriting properties
       const {isRaw, id, name, description, docs, sports, activityDayMapping, phases} = challenge
       const squashedChallenge = {isRaw, id, name, description, docs, sports, activityDayMapping}
@@ -52,6 +54,9 @@ export const getChallengesByDate = (challengesConfig, date) => {
       }, squashedPhase)
 
       squashedChallenge.currentPhase = squashedPhase
+      /* console.log(`=== ${date} ===`)
+      console.log('--- Challenge:', JSON.stringify(squashedChallenge))
+      console.log('--- Phase:', JSON.stringify(squashedPhase)) */
       return squashedChallenge
     })
 }
