@@ -69,45 +69,12 @@ export const squashObjects = (target, source, propRules = 'overwrite') => {
 export const squashArrays = (target, source, idProp = 'id', propRules = 'overwrite') => {
   target = JSON.parse(JSON.stringify(target))
   return source.reduce((targetArray, sourceElement) => {
-    const targetElement = targetArray.find(targetElement => targetElement[idProp] === sourceElement[idProp])
+    let targetElement = targetArray.find(targetElement => targetElement[idProp] === sourceElement[idProp])
     if (targetElement === undefined) {
       targetArray.push(sourceElement)
     } else {
-      // squash in source properties using propRules
-      const targetProps = Object.keys(targetElement)
-      const sourceProps = Object.keys(sourceElement)
-      sourceProps.forEach(prop => {
-        if (targetProps.some(tProp => tProp === prop)) {
-          // squash property using propRules
-          const rule = typeof propRules === 'string' || propRules[prop] === undefined
-            ? 'overwrite'
-            : propRules[prop]
-
-          switch (rule) {
-            case 'overwrite':
-              targetElement[prop] = sourceElement[prop]
-              break
-            case 'sum': // distinguish between scalars and arrays; throw on Object
-              if (Array.isArray(targetElement[prop]) || Array.isArray(sourceElement[prop])) {
-                targetElement[prop] = [...targetElement[prop], ...sourceElement[prop]]
-              } else {
-                targetElement[prop] = (targetElement[prop] ?? (isNumber(sourceElement[prop]) ? 0 : '')) + sourceElement[prop]
-              }
-              break
-            case 'append': // distinguish between scalars (numbers are treated as strings) and arrays; throw on Object;
-              if (Array.isArray(targetElement[prop]) || Array.isArray(sourceElement[prop])) {
-                targetElement[prop] = [...targetElement[prop], ...sourceElement[prop]]
-              } else {
-                targetElement[prop] = (targetElement[prop] ?? '') + ('' + sourceElement[prop])
-              }
-              break
-            default: // function
-              targetElement[prop] = rule(targetElement[prop], sourceElement[prop], targetElement, sourceElement)
-          }
-        } else {
-          targetElement[prop] = sourceElement[prop]
-        }
-      })
+      targetArray[targetArray.findIndex(element => element[idProp] === targetElement[idProp])] =
+        squashObjects(targetElement, sourceElement, propRules)
     }
     return targetArray
   }, target)
