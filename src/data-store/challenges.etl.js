@@ -1,5 +1,5 @@
 import {date2UTCString} from "../common/date-helpers.js"
-import {squashArrays, squashObjects} from "../common/object-helpers.js";
+import {squashArrays, squashObjects} from "../common/object-helpers.js"
 
 /**
  * Returns config of challenges that applicable to current date, only computations applicable

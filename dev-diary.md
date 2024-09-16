@@ -1,5 +1,5 @@
 
 | Category                                       | hrs   |
 |------------------------------------------------|-------|
-| Total                                          | 08:50 |
-| helpers: date, objects, type; data: challenges | 08:50 |
+| Total                                          | 10:30 |
+| helpers: date, objects, type; data: challenges | 10:30 |

@@ -1,4 +1,4 @@
-import {isNumber} from "./type-helpers.js";
+import {isNumber} from "./type-helpers.js"
 
 /**
  * Merges two objects.

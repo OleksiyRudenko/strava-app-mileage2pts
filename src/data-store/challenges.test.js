@@ -1,6 +1,6 @@
 import {challengesConfig} from "./challenges.config.js"
 import {getChallengesByDate} from "./challenges.etl.js"
-import {challengeGraRowerowa, challengeRingSportClub} from "./challenges.test.data.js";
+import {challengeGraRowerowa, challengeRingSportClub} from "./challenges.test.data.js"
 
 const getChallengesByDateTestCases = [
   [ { challengesConfig, date: '2024-09-05T10:00:00.000Z'}, [challengeGraRowerowa.Sep, challengeRingSportClub]],
