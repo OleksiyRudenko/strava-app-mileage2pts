@@ -4,7 +4,7 @@
  * @returns {string}
  */
 export const date2UTCString = date => {
-  if (typeof (date) === "string") date = new Date(date)
+  if (typeof date === "string") date = new Date(Date.parse(date))
   return date.toISOString()
 }
 
@@ -40,4 +40,4 @@ export const dateWithTimeZone = (timeZone = "Europe/London", year, month, day, h
   date.setTime(date.getTime() + offset)
 
   return date
-};
+}
