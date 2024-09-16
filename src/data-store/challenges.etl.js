@@ -67,7 +67,7 @@ export const prepareChallengeConfig = challengeConfig => {
   challengeConfig = JSON.parse(JSON.stringify(challengeConfig))
   challengeConfig.isRaw = false
   challengeConfig.phases.forEach(phase => {
-    if (typeof (phase.timeframe) !== "undefined") {
+    if (phase.timeframe !== undefined) {
       phase.timeframe.from = date2UTCString(phase.timeframe.from);
       phase.timeframe.till = date2UTCString(phase.timeframe.till);
     }

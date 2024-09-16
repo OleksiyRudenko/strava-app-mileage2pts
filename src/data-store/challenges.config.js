@@ -20,7 +20,7 @@ export const challengesConfig = [
     phases: [
       {
         id: "default",
-        timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-11-30T23:59:59+2:00",},
+        timeframe: {from: "2024-09-01T00:00:00+02:00", till: "2024-11-30T23:59:59+02:00",},
         metrics: [
           {
             id: "pts",
@@ -88,13 +88,13 @@ export const challengesConfig = [
         id: "x1",
         name: "September",
         description: "In September pts are equivalent to kilometers rounded down to integer",
-        timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-09-30T23:59:59+2:00",},
+        timeframe: {from: "2024-09-01T00:00:00+02:00", till: "2024-09-30T23:59:59+02:00",},
       },
       {
         id: "x2",
         name: "October x2",
         description: "In October pts are x2!",
-        timeframe: {from: "2024-10-01T00:00:00+2:00", till: "2024-10-31T23:59:59+2:00",},
+        timeframe: {from: "2024-10-01T00:00:00+02:00", till: "2024-10-31T23:59:59+02:00",},
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
@@ -115,7 +115,7 @@ export const challengesConfig = [
         id: "x3",
         name: "November x3",
         description: "In November pts are x3!",
-        timeframe: {from: "2024-11-01T00:00:00+2:00", till: "2024-11-30T23:59:59+2:00",},
+        timeframe: {from: "2024-11-01T00:00:00+02:00", till: "2024-11-30T23:59:59+02:00",},
         metrics: [
           {
             id: "pts", // amends metric from defaults entry
@@ -167,7 +167,7 @@ export const challengesConfig = [
       {
         id: "single",
         name: "Autumn 2024",
-        timeframe: {from: "2024-09-01T00:00:00+2:00", till: "2024-10-31T23:59:59+2:00",},
+        timeframe: {from: "2024-09-01T00:00:00+02:00", till: "2024-10-31T23:59:59+02:00",},
         metrics: [
           {
             id: "pts",
