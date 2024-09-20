@@ -20,3 +20,4 @@ Source for assets:
 
 - Strava YTD app [article](https://www.curtiscode.dev/post/project/displaying-strava-stats-using-webhooks/)
   and [repo](https://github.com/curtiscde/stravaytd?tab=readme-ov-file).
+- Strava webhooks [article](https://medium.com/@eric.l.m.thomas/setting-up-strava-webhooks-e8b825329dc7)
