@@ -11,6 +11,8 @@ import {isNumber} from "./type-helpers.js"
 export const squashObjects = (target, source, propRules = 'overwrite') => {
   target = JSON.parse(JSON.stringify(target))
 
+  // TODO: use Object.create(Object.create(null, target), source);
+  // TODO: use defaultObject to create the obj with default properties
   // squash in source properties using propRules
   const targetProps = Object.keys(target)
   const sourceProps = Object.keys(source)

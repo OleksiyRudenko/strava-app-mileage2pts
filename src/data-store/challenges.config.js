@@ -1,6 +1,62 @@
 export const challengesConfig = [
   {
-    isRaw: true, // see challenges.etl.js for status meaning
+    isRaw: true, // see challenges.etl.js for isRaw status meaning
+    id: null,
+    name: null,
+    description: "Challenge prototype object ensuring key properties exist",
+    docs: {
+      regulations: null,
+      computations: null,
+      rankBoard: null,
+    },
+    area: {
+      url: { interactive: null, static: null, },
+      boundaries: null,
+    },
+    sports: [
+      {
+        groupName: null,
+        // https://support.strava.com/hc/en-us/articles/216919407-Supported-Sport-Types-on-Strava
+        activities: [],
+      },
+    ],
+    activityDayMapping: null,
+    phases: [
+      {
+        id: null,
+        name: null, // = id if not defined
+        timeframe: { from: null, till: null },
+        metrics: [
+          {
+            id: null,
+            frequency: null, // onActivityEnd|cumulative|onDayEnd
+            inputs: [
+              {
+                id: null,
+                name: null, // = id if not defined
+                source: null, // API|user
+                dataProvider: null, // relevant if source === API
+                sportGroups: [],
+              },
+            ],
+            outputs: [
+              {
+                id: null,
+                name: null, // = id if not defined
+                computationRulesAmendmentMode: null, // [overwrite]|append
+                computationRules: [
+                  {op: null, params: [],},
+                ],
+              }
+            ],
+          }
+        ],
+      }
+    ],
+  },
+  {
+    isRaw: true,
+    id: "GraRowerowaGdansk2024",
     name: "grarowerowa 2024 Gdansk",
     description: "",
     docs: {
@@ -8,10 +64,16 @@ export const challengesConfig = [
       computations: "https://contests.v3.activy.pl/pages/pl/30b42c7a-7df5-46fa-9a67-c3883f896a6f/rules",
       rankBoard: "",
     },
+    area: {
+      url: {
+        interactive: null,
+        static: "https://5488344.fs1.hubspotusercontent-na1.net/hubfs/5488344/obszar-punktowany.png",
+      },
+      boundaries: null,
+    },
     sports: [
       {
         groupName: "wheels",
-        // https://support.strava.com/hc/en-us/articles/216919407-Supported-Sport-Types-on-Strava
         activities: ["Ride", "Inline Skate", "Mountain Bike Ride", "Road bike", "E-Bike Ride", "E-Mountain Bike Ride",
           "Gravel Ride", "Handcycle", "Skateboard"],
       },
