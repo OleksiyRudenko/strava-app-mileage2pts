@@ -13,7 +13,7 @@ Critical files in project are explained here.
  \-- nvm4w.cmd
 ```
 
-Source for assets:
+Source of assets:
 [non-public](https://drive.google.com/drive/folders/1B5SNWKYTk8V-bwM9RGd1oPRxoYign2qi)
 
 ## Reference

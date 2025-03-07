@@ -26,12 +26,13 @@ export const challengeConfigRingSportsClub2024Autumn = {
       activities: ["Swim",],
     }
   ],
+  participantsEligibility: {}, // participants eligibility definition
   activityDayMapping: "activityEnd",
   phases: [
     {
       id: "single",
       name: "Autumn 2024",
-      timeframe: {from: "2024-09-01T00:00:00+02:00", till: "2024-10-31T23:59:59+02:00",},
+      timeframe: {from: "2024-09-01T00:00:00+02:00", till: "2024-10-31T23:59:59+02:00", TZ: "Europe/Warsaw", },
       metrics: [
         {
           id: "pts",
